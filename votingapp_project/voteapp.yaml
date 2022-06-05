@@ -10,4 +10,4 @@ spec:
   - name: voteapp
     image: srikanth7777/voteapp:v1
     ports:
-      - containerPort: <Port>
+      - containerPort: 80
