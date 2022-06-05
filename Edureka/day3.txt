@@ -1,0 +1,557 @@
+    1  ip r
+    2  sudo su
+    3  swapoff -
+    4  swapoff -a
+    5  sudo apt-get update && apt-get install -y apt-transport-https curl
+    6  sudo su
+    7  mkdir -p $HOME/.kube
+    8  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    9  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   10  kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+   11  kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+   12  kubectl get nodes
+   13  kubectl get pods
+   14  kubectl get pods -A
+   15  kubectl get nodes
+   16  ip r
+   17  kubectl get nodes
+   18  ip r
+   19  kubectl get nodes
+   20  kubectl get pods -A
+   21  kubectl get nodes
+   22  kubectl get cm
+   23  kubectl get cm -A
+   24  kubectl edit cm tigera-operator -n tigera-operator -o yaml
+   25  kubectl edit cm operator-lock -n tigera-operator -o yaml
+   26  kubectl edit cm kube-root-ca.crt -n tigera-operator -o yaml
+   27  kubectl edit cm kubelet-config-1.23 -n kube-system -o yaml
+   28  kubectl edit cm kubelet-config -n kube-system -o yaml
+   29  kubectl edit cm kubeadm-config -n kube-system -o yaml
+   30  kubectl edit cm coredns -n kube-system -o yaml
+   31  kubectl edit cm kubeadm-config -n kube-system -o yaml
+   32  kubectl edit cluster-info -n kube-system -o yaml
+   33  kubectl get cm -A
+   34  kubectl edit cluster-info -n kube-public -o yaml
+   35  kubectl edit cm cluster-info -n kube-public -o yaml
+   36  ps -ef | grep "cluster-cidr"
+   37  kubeadm config view | grep subnet
+   38  sudo su
+   39  kubeadm init --pod-network-cidr=192.168.0.0/16
+   40  sudo su
+   41  kubectl get nodez
+   42  kubectl get nodes
+   43  kubectl get pods
+   44  kubectl get pods -A
+   45  kubectl delete pod coredns-64897985d-4tc5j
+   46  kubectl delete pod coredns-64897985d-4tc5j -n kube-system
+   47  kubectl get pods -A
+   48  kubectl logs coredns-64897985d-kwmcv -n kube-system
+   49  kubectl describe pod coredns-64897985d-kwmcv -n kube-system
+   50  cluster-info
+   51  kubectl cluster-info
+   52  kubectl cluster-info dump
+   53  kubectl cluster-info dump | more
+   54  kubectl cluster-info dump | grep cidr
+   55  kubectl cluster-info dump | grep pod
+   56  kubectl cluster-info dump | grep pod| more
+   57  sudo su
+   58  cd  $HOME/.kube/config
+   59  cd  $HOME/.kube/
+   60  pwd
+   61  d
+   62  cd ..
+   63  rm -rf .kube/
+   64  sudo su
+   65  mkdir -p $HOME/.kube
+   66  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   67  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   68  kubectl get nodes
+   69  kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+   70  kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+   71  kubectl get nodes
+   72  kubectl get pods -A
+   73  kubectl get nodes
+   74  kubectl get pods -A
+   75  kubectl get nodes
+   76  kubectl get pods -A
+   77  sudo kubeadm token create --print-join-command
+   78  kubectl get pods -A
+   79  ls
+   80  pwd
+   81  ll
+   82  vi kubeadm-join
+   83  sudo kubeadm token create --print-join-command
+   84  vi kubeadm-join
+   85  kubectl get nodes
+   86  kubectl get pods --namespace kube-system
+   87  kubectl get ns
+   88  kubectl get nodes
+   89  kubectl label node worker1 node-role.kubernetes.io/worker=worker
+   90  kubectl label node worker2 node-role.kubernetes.io/worker=worker
+   91  kubectl label node worker3 node-role.kubernetes.io/worker=worker
+   92  kubectl get nodes
+   93  cd .ssc
+   94  kubectl get nodes
+   95  exit
+   96  kubectl explain pod.metadata
+   97  kubectl explain pod.spec.containers
+   98  kubectl explain pod.spec | grep -i required
+   99  kubectl get nodes
+  100  kubectl get nodes -w
+  101  kubectl get pods -A
+  102  kubectl get nodes
+  103  kubectl run nginxpod --image=nginx --port 80
+  104  kubectl get pods
+  105  kubectl get all
+  106  kubectl get api-resources
+  107  kubectl api-resources
+  108  kubectl explain pod | grep -i required
+  109  kubectl explain pod
+  110  kubectl explain pod.metadata | more
+  111  kubectl explain pod.metadata | grep -i required
+  112  kubectl explain pod.metadata
+  113  kubectl explain pod.metadata | nore
+  114  kubectl explain pod.metadata | more
+  115  kubectl explain pod.spec | grep -i required
+  116  kubectl explain pod.spec.container | grep -i required
+  117  kubectl explain pod.spec.containers | grep -i required
+  118  kubectl explain pod.spec.containers | more
+  119  kubectl explain pod.spec.containers.ports | more
+  120  kubectl api-resources | grep pod
+  121  kubectl explain pod.spec.containers | more
+  122  kubectl api-resources | grep deplo
+  123  kubectl explain deploments
+  124  kubectl explain deployments
+  125  kubectl explain deployments.metadata| more
+  126  kubectl explain deployments.spec| more
+  127  kubectl explain deployments.spec| grep -i container
+  128  kubectl explain deployments.spec.container
+  129  kubectl explain deployments.spec.containers
+  130  kubectl explain deployments.spec.template
+  131  kubectl explain deployments.spec.template.spec
+  132  kubectl explain deployments.spec | grep -i required
+  133  kubectl explain deployments.spec.selector | grep -i required
+  134  kubectl explain deployments.spec.selector | more
+  135  kubectl explain deployments.spec.selector.matchLabels
+  136  kubectl explain deployments.spec.template
+  137  kubectl explain deployments.spec.template.metadata
+  138  kubectl explain deployments.spec.template.spec
+  139  kubectl explain deployments.spec.template.spec | grep -i required
+  140  mkdir edureka
+  141  cd edureka/
+  142  cd
+  143  ls
+  144  rm -rf edureka/
+  145  exit
+  146  ls
+  147  mkdir day2
+  148  cd day2
+  149  mkdir controllers
+  150  cd controllers/
+  151  vi one-container
+  152  kubectl apply -f one-container 
+  153  vi one-container
+  154  kubectl apply -f one-container 
+  155  vi one-container
+  156  kubectl apply -f one-container 
+  157  vi one-container
+  158  kubectl apply -f one-container 
+  159  kubectl get pods -A
+  160  kubectl get pods
+  161  vi one-container 
+  162  kubectl apply -f one-container 
+  163  kubectl get pods
+  164  kubectl delete pod nginx
+  165  kubectl get pods
+  166  kubectl apply -f one-container 
+  167  kubectl get pods
+  168  kubectl delete pod nginx
+  169  vi one-container 
+  170  kubectl apply -f one-container 
+  171  kubectl get pods
+  172  cp one-container multii-container
+  173  vi multii-container 
+  174  kubectl apply -f multii-container 
+  175  kubectl get pods
+  176  kubectl get pods -w
+  177  kubectl get pods
+  178  vi init-container
+  179  kubectl apply -f init-container 
+  180  vi init-container
+  181  kubectl apply -f init-container 
+  182  vi init-container
+  183  kubectl apply -f init-container 
+  184  vi init-container
+  185  kubectl apply -f init-container 
+  186  vi init-container
+  187  kubectl apply -f init-container 
+  188  kubectl get nodes
+  189  kubectl get pods
+  190  kubectl get pods -w
+  191  kubectl get pods
+  192  mkdir deployments
+  193  cd deployments/
+  194  cp -pr ../one-container .
+  195  mv one-container ngninx-depploy
+  196  mv ngninx-depploy ngninx-deploy
+  197  ls
+  198  mv ngninx-deploy nginx-deploy 
+  199  vi nginx-deploy 
+  200  kubectl apply -f nginx-deploy 
+  201  vi nginx-deploy 
+  202  kubectl apply -f nginx-deploy 
+  203  vi nginx-deploy 
+  204  kubectl apply -f nginx-deploy 
+  205  kubectl get pods
+  206  kubectl get deployments
+  207  alias=k
+  208  k get nodes
+  209  allias=k
+  210  k get nodes
+  211  alias k=kubectl
+  212  k rollout history 
+  213  k rollout history deployment nginx-deployment
+  214  k set image deployemnt nginx-deployment --image nginx:1.16.0
+  215  k set image deployemnt nginx-deployment nginx:1.16.0
+  216  k set image deployemnt nginx-deployment nginx nginx:1.16.0
+  217  k set image deployemnt nginx-deployment nginx=nginx:1.16.0
+  218  k set image deployemnt nginx-deployment nginx=nginx:1.16.1
+  219  k set image deployemnts nginx-deployment nginx=nginx:1.16.0
+  220  kubectl get deployments
+  221  k set image deployemnts nginx-deployment=nginx:1.16.0
+  222  k set image deployment/nginx-deployment nginx=nginx:1.16.0
+  223  kubectl get pods
+  224  kubectl get pods -w
+  225  kubectl get pods
+  226  kubectl rollout history deployemnt nginx-deployment
+  227  kubectl rollout history deployment nginx-deployment
+  228  k set image deployment/nginx-deployment --revision=
+  229  kubectl get pods
+  230  kubectl rollout history deployment nginx-deployment
+  231  kubectl rollout history deployment nginx-deployment --revision 2
+  232  kubectl rollout history deployment nginx-deployment --revision 3
+  233  kubectl get pods
+  234  kubectl get rs
+  235  kubectl rollout status -A
+  236  kubectl rollout status deployment/nginx-deployment
+  237  kubectl rollout undo deployment/nginx-deployment
+  238  kubectl rollout history deployment nginx-deployment
+  239  kubectl get pods
+  240  kubectl get rs
+  241  kubectl rollout undo deployment/nginx-deployment --to-revision=1
+  242  kubectl get rs
+  243  kubectl get pods
+  244  kubectl get rs
+  245  kubectl rollout history deployment nginx-deployment
+  246  kubectl scale deployment nginx-deployment --replicas=1
+  247  kubectl get pods
+  248  kubectl get rs
+  249  kubectl scale deployment nginx-deployment --replicas=7
+  250  kubectl get pods
+  251  cd
+  252  pwd
+  253  kubectl get deployment
+  254  kubectl delete deployment nginx-deployment
+  255  kubectl get pods
+  256  cd day2/
+  257  ls
+  258  cd controllers/
+  259  ls
+  260  cd deployments/
+  261  ls
+  262  vi nginx-deploy 
+  263  kubectl apply -f nginx-deploy 
+  264  vi nginx-deploy 
+  265  pwd
+  266  ls
+  267  vi nginx-deploy 
+  268  kubectl get nodes
+  269  kubectl get deployements
+  270  kubectl get deployement
+  271  kubectl get deployment
+  272  ls
+  273  cd day2/
+  274  ls
+  275  cd controllers/
+  276  ls
+  277  vf deployments/
+  278  ls
+  279  cd deployments/
+  280  ls
+  281  kubectl apply -f nginx-deploy 
+  282  kubectl get pods
+  283  exit
+  284  ls
+  285  vi pod
+  286  kubectl apply -f pod
+  287  vi pod
+  288  kubectl apply -f pod
+  289  kubectl get pods
+  290  exit
+  291  kubectl explain pod
+  292  kubectl explain pod.metdata | more
+  293  kubectl explain pod.metadata | more
+  294  kubectl explain pod.spec
+  295  kubectl explain pod.spec | grep -i required
+  296  kubectl explain pod.spec.containers | grep -i required
+  297  kubectl explain pod.spec.containers | grep -i image
+  298  kubectl get pods
+  299  kubectl get deployments
+  300  kubectl get pods -A -o wide
+  301  kubectl get nodes -A -o wide
+  302  ssh 10.160.0.3
+  303  ssh 10.160.0.5
+  304  ssh-keygen
+  305  cd .ssh
+  306  cat id_rsa.pub 
+  307  ssh 10.160.0.5
+  308  ssh 10.160.0.3
+  309  cd
+  310  ls
+  311  kubectl run nginx-static --image=nginx:1.14.2 -o yaml
+  312  kubectl run nginx-static --image=nginx:1.14.2 --dry-run-client -o yaml
+  313  kubectl run nginx-static --image=nginx:1.14.2 --dry-run=client -o yaml
+  314  kubectl get pods
+  315  ls
+  316  cd day2/
+  317  ls
+  318  cd controllers/
+  319  ls
+  320  kubectl delete pod nginx-static
+  321  kubectl get pods
+  322  kubectl delete pod nginx-static-worker1
+  323  kubectl get pods
+  324  ls
+  325  cd day2/
+  326  ls
+  327  cd controllers/
+  328  ls
+  329  vi multii-container 
+  330  cp multii-container multii-container-1
+  331  vi multii-container-1
+  332  kubectl apply -f multii-container-1 
+  333  kubectl explain pod.metadata
+  334  kubectl apply -f multii-container-1 
+  335  kubectl explain pod.metadata.labels
+  336  vi multii-container-1 
+  337  kubectl apply -f multii-container-1 
+  338  vi multii-container-1 
+  339  kubectl apply -f multii-container-1 
+  340  vi multii-container-1 
+  341  kubectl apply -f multii-container-1 
+  342  kubectl get pods -A
+  343  ls
+  344  kubectl get pods
+  345  vi multi
+  346  kubectl apply -f multi 
+  347  vi multi 
+  348  cd .ssh
+  349  cat id_rsa.pub 
+  350  ping 34.100.155.141
+  351  cd
+  352  ls
+  353  mv multi multi_1
+  354  scp multi_1 venkateshdevops16@34.100.155.141:
+  355  ls
+  356  cd day2/
+  357  l
+  358  cd controllers/
+  359  ls
+  360  vi daemon-set
+  361  vi job
+  362  cat wget https://k8s.io/examples/application/job/cronjob.yaml > cronjob
+  363  vi cronjob
+  364  mkdir configuration
+  365  cd configuration/
+  366  vi ENV
+  367  vi configmap
+  368  vi usingenv
+  369  vi using_env_fromconfigmap
+  370  vi secrets
+  371  wget https://raw.githubusercontent.com/sparkmbt/sparkmbt/main/kubesample.yaml
+  372  kubectl get pods --show-labels
+  373  vi lables
+  374  kube3a k run nginx-dns --image=nginx --port=80
+  375  kubectl run nginx-dns --image=nginx --port=80
+  376  kubectl get pods
+  377  kubectl delete pod nginx-dns
+  378  kubectl run nginx-dns --image=nginx --port=80 -o yaml
+  379  kubectl get pods
+  380  kubectl delete pod nginx-dns
+  381  kubectl run nginx-dns --image=nginx --port=80 -o yaml --dry-run=client
+  382  kubectl get pods
+  383  ls
+  384  cd day2/controllers/
+  385  ls
+  386  kubectl get nodes
+  387  kubectl get pods
+  388  sudo netstat -an | grep 6443
+  389  netstat
+  390  sudo apt install net-tools
+  391  sudo netstat -an | grep 6443
+  392  kubectl get nodes
+  393  kubectl get pods
+  394  kubectl get pods -A
+  395  kubectl get nodes
+  396  kubectl taint nodes worker3 type=value:NoSchedule
+  397  ls
+  398  cp one-container one-container_1
+  399  vi one-container_1 
+  400  kubecl apply -f one-container_1 
+  401  kubectl apply -f one-container_1 
+  402  kubectl get pods
+  403  kubectl get pods -A| grpe taint
+  404  kubectl get pods -A| grep taint
+  405  kubectl delete pod one-container-test-taint
+  406  vi one-container_1 
+  407  kubectl get nodes -A -o wide
+  408  kubectl get nodes -A -o wide --show-labels
+  409  kubectl taint nodes worker3 node-role.kubernetes.io/type=gpu:NoSchedule
+  410  kubectl apply -f one-container_1 
+  411  kubectl get pod 
+  412  kubectl get nodes -A -o wide --show-labels
+  413  kubectl describe node worker3
+  414  kubectl taint nodes worker3 node-role.worker/type=gpu:NoSchedule
+  415  kubectl delete pod one-container-test-taint
+  416  kubectl apply -f one-container_1 
+  417  kubectl get pods -A| grep taint
+  418  kubectl taint nodes worker3 node-role.kubernetes.io/type-
+  419  kubectl taint nodes worker3 node-role.worker/type-
+  420  kubectl describe node worker3
+  421  kubectl taint nodes worker3 type-
+  422  sudo snap install helm --classic
+  423  helm version
+  424  helm repo add bitnami https://charts.bitnami.com/bitnami
+  425  helm repo update
+  426  helm search repo bitnami
+  427  sudo helm install test-
+  428  sudo helm install test-grafana bitnami/grafana
+  429  helm search repo bitnami/grafana
+  430  sudo helm install test-grafana bitnami/grafana
+  431  sudo helm install test-grafana bitnami/nginx
+  432  sudo snap install helm --classic
+  433  helm repo add bitnami https://charts.bitnami.com/bitnami
+  434  ping www.google.com
+  435  sudo helm install test-grafana bitnami/nginx
+  436  kubectl get nodes
+  437  kubectl get pods
+  438  kubectl get pods -A
+  439  sudo helm install test-nginx bitnami/nginx 
+  440  helm list
+  441  helm install test-nginx bitnami/nginx
+  442  kubectl get pods
+  443  kubectl get svc -A
+  444  nslookup 10.105.138.67
+  445  ping 10.105.138.67
+  446  helm uninstall test-nginx bitnami/nginx
+  447  helm list
+  448  kubectl get deploy
+  449  k get pods | grep test
+  450  kubectl get pods | grep test
+  451  kubectl get pods
+  452  helm uninstall test-grafana bitnami/grafana
+  453  helm install test-grafana bitnami/grafana
+  454  echo "Password: $(kubectl get secret test-grafana-admin --namespace default -o jsonpath="{.data.GF_SECURITY_ADMIN_PASSWORD}" | base64 --decode)"
+  455  kubectl port-forward svc/test-grafana 8080:3000 &
+  456  kubectl get pods -A
+  457  kubectl get pods -A -o wide| grep grafana
+  458  kubectl describe pod test-grafana-757d4655cc-6p44s
+  459  kubectl get pods -A -o wide| grep grafana
+  460  helm uninstall test-grafana bitnami/grafana
+  461  alias kubectl=k
+  462  k get svc -A
+  463  kubectl get svc -A
+  464  alias k=kubectl
+  465  k get svc -A
+  466  kubectl get pods
+  467  kubectl get svc -A
+  468  kubectl get ep frontend
+  469  kubectl run pod test1 --image=radial/busyboxplus:curl -tty
+  470  kubectl run pod test1 --image=radial/busyboxplus:curl
+  471  kubectl exec -it pod test1 -- /bin/sh
+  472  kubectl get pods
+  473  kubectl run pod test1 --image=radial/busyboxplus:curl
+  474  kubectl get pods
+  475  kubectl get pods | grep pod
+  476  kubectl describe pod pod 
+  477  kubectl delete pod pod
+  478  kubectl run pod test1 --image=radial/busyboxplus:curl --tty
+  479  kubectl run pod test1 --image=radial/busyboxplus:curl -- tty
+  480  kubectl get pods
+  481  kubectl logs pod
+  482  kubectl describe pod pod
+  483  kubectl delete pod pod
+  484  kubectl run pod test1 --image=radial/busyboxplus:curl -i --tty
+  485  kubectl get pods
+  486  kubectl delete pod pod
+  487  kubectl run test1 --image=radial/busyboxplus:curl -i --tty
+  488  kubectl get svc
+  489  kubectl attach test1 -c test1 -i -t
+  490  kubectl create ns test1
+  491  kubectl run test2 --image=radial/busyboxplus:curl -i --tty -n test1
+  492  kubectl get pods -A| grep test1
+  493  kubectl get svc -A
+  494  curl http://master:32674
+  495  curl http://worker:32674
+  496  curl http://workerq:32674
+  497  curl http://worker1:32674
+  498  curl http://workerq:32674
+  499  curl http://worker3:32674
+  500  curl http://worker2:32674
+  501  kubectl get nodes -A -o wide 
+  502  ssh 10.160.0.3
+  503  cd .ssh
+  504  vi authorized_keys 
+  505  curl http://worker1:32674
+  506  kubectl get pods -A| grep dns
+  507  kubectl get svc
+  508  kubectl get pods -A| grep kube
+  509  kubectl get pods -A| grep test1
+  510  kubectl get pods -n test2
+  511  kubectl get pods -n test1
+  512  kubectl get pods -o wide -n test1
+  513  ping 192.168.189.78
+  514  kubectl get svc -A
+  515  kubectl get services kube-dns --namespace=kube-system
+  516  kubectl exec -it pod test2 -- /bin/sh
+  517  kubectl exec -it test2 -- /bin/sh
+  518  kubectl exec pod test2 -it  -- /bin/sh
+  519  kubectl get pods -n test1
+  520  kubectl exec pod test2 -it -- /bin/sh
+  521  kubectl exec pod test2 -it
+  522  kubectl exec pod test2 -it /bin/sh
+  523  kubectl exec pods test2 -it /bin/sh
+  524  kubectl exec -ti dnsutils -- cat /etc/resolv.conf
+  525  cd
+  526  kubectl exec -ti test1 -- cat /etc/resolv.conf
+  527  kubectl exec -ti test2 -- cat /etc/resolv.conf
+  528  kubectl exec -ti test2 -n test1-- cat /etc/resolv.conf
+  529  kubectl get pods -n test1
+  530  kubectl exec -ti test2 -n test1 -- cat /etc/resolv.conf
+  531  kubectl exec -i -t test2 -n test1 -- nslookup kubernetes.default
+  532  kubectl get pods --namespace=kube-system -l k8s-app=kube-dns
+  533  kubectl logs --namespace=kube-system -l k8s-app=kube-dns
+  534  kubectl get svc --namespace=kube-system
+  535  kubectl -n kube-system edit configmap coredns
+  536  kubectl get pods --namespace=kube-system -l k8s-app=kube-dns
+  537  kubectl logs --namespace=kube-system -l k8s-app=kube-dns
+  538  kubectl exec -i -t test2 -n test1 -- /bin/sh
+  539  kubectl get svc -A
+  540  kubectl exec -i -t test2 -n test1 -- /bin/sh
+  541  ls
+  542  cd day2/
+  543  ls
+  544  cd controllers/
+  545  ls
+  546  cd deployments/
+  547  ls
+  548  kubectl apply -f nginx-deploy -n test1
+  549  kubectl get deploy -test1
+  550  kubectl get deploy -n test1
+  551  cd
+  552  vi firewall
+  553  kubectl get svc -A
+  554  kubectl get podss
+  555  kubectl get pods
+  556  history
+  557  history > day3.txt
