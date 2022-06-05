@@ -8,11 +8,7 @@ metadata:
   name: voteresult
 spec:
   containers:
-  - image: kodekloud/examplevotingapp_result:v1
+  - image: eesprit/voting-app-result
     ports:
-    - containerPort: 80
+    - containerPort: 5001
     name: voteresult
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-status: {}

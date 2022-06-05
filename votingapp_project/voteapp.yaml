@@ -8,6 +8,6 @@ metadata:
 spec:
   containers:
   - name: voteapp
-    image: srikanth7777/voteapp:v1
+    image: eesprit/voting-app-vote
     ports:
-      - containerPort: 80
+      - containerPort: 5000

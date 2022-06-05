@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    name: voteapp
+    vote: vote_demo
+  name: voteapp
+  namespace: votingapp
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+    nodePort: 30004
+  selector:
+    name: voteapp
+    vote: vote_demo
+  type: NodePort
+status:
+  loadBalancer: {}

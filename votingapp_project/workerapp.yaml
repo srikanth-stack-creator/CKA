@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: workerapp-pod
+  labels:
+    name: workerapp-pod
+    vote: vote_demo
+spec:
+  containers:
+  - name: workerapp
+    image: eesprit/voting-app-worker

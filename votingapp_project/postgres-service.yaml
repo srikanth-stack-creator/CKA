@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    name: postgress_pod
+    vote: vote_demo
+  name: db
+  namespace: votingapp
+spec:
+  ports:
+  - port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    name: postgres-pod
+    vote: vote_demo
+status:
+  loadBalancer: {}
