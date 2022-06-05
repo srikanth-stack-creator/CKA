@@ -3,12 +3,15 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: redis
+    name: redis
+    vote: vote_demo
   name: redis
 spec:
   containers:
   - image: redis
     name: redis
+    ports:
+    - containerPort: 6379
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
