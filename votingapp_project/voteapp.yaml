@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: voteapp
+  labels:
+    name: voteapp
+    vote: vote_demo
+spec:
+  containers:
+  - name: voteapp
+    image: srikanth7777/voteapp:v1
+    ports:
+      - containerPort: <Port>
