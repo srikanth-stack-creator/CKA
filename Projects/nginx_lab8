@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx-lab8
+  name: nginx-lab8
+spec:
+  containers:
+  - image: nginx
+    name: nginx-lab8
+    resources: {}
+    env:
+    - name: Variable1 
+      value: somevalue
+    - name: Variable2
+      value: someothervalue
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

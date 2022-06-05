@@ -1,0 +1,4 @@
+padhisrikanth@master:~/day2/controllers/configuration$ kubectl get pods --show-lables
+Error: unknown flag: --show-lables
+See 'kubectl get --help' for usage.
+
