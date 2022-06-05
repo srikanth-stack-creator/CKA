@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: voteresult
+  name: voteresult
+spec:
+  containers:
+          - image: kodekloud/examplevotingapp_result:v1
+    name: voteresult
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
