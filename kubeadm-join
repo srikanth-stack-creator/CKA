@@ -1,1 +1,0 @@
-kubeadm join 10.160.0.2:6443 --token rojko4.7xhikozaf8gg4nng --discovery-token-ca-cert-hash sha256:aa451730577628e4ec17ce5fcd1b6cfe132f546c0d48e8157ef657f315a0ab76

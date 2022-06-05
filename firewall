@@ -1,1 +1,0 @@
-gcloud compute firewall-rules create all --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
