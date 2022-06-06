@@ -8,4 +8,4 @@ metadata:
 spec:
   containers:
   - name: workerapp
-    image: eesprit/voting-app-worker
+    image: srikanth7777/workerapp:v1

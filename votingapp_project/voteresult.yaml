@@ -8,7 +8,7 @@ metadata:
   name: voteresult
 spec:
   containers:
-  - image: eesprit/voting-app-result
+  - image: srikanth7777/resultapp:v1
     ports:
-    - containerPort: 5001
+    - containerPort: 80
     name: voteresult
