@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
   - name: web
-    image: httpd
+    image: httpd:2.4.53
     ports:
     - containerPort: 80
   - name: redis
