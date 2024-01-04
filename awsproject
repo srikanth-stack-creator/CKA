@@ -1,8 +1,7 @@
 Steps:
 -----
-1. Creating VMs
-2. Bootstrapping clusters with kubeadm
-3. Verify the cluster
+1. Create EKS cluster
+3. Verify the cluster access
 4. Create docker image with required app files
 5. Push to docker repo
 6. Creating kubernetes deployment
