@@ -198,6 +198,59 @@ Now we are ready to build an image and push to the docker repository.
 
 Build docker image:
 
+docker build -t srikanth7777/apache-html-sample:2 .
+docker push  srikanth7777/apache-html-sample:2
+
+
+Install k6 for load testing:
+
+copied from kuberenets.io >>>
+Previously we created a Deployment, and then exposed it publicly via a Service. 
+The Deployment created only one Pod for running our application. 
+When traffic increases, we will need to scale the application to keep up with user demand.
+
+
+sudo gpg -k
+sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+sudo apt-get update
+sudo apt-get install k6
+
+
+Test: k6 run --vus 1000 --duration 3m load-test.js
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+pavankumarseeram_pk@cloudshell:~/CKA/final_project/test2$ k6 run --vus 1000 --duration 5m load-test.js                         
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: load-test.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 1000 max VUs, 5m30s max duration (incl. graceful stop):
+           * default: 1000 looping VUs for 5m0s (gracefulStop: 30s)
+
+
+running (0m23.1s), 1000/1000 VUs, 24111 complete and 0 interrupted iterations
+default   [=>------------------------------------] 1000 VUs  0m23.1s/5m0s
+
+
+In other terminal, keep hpa in watch
+
+pavankumarseeram_pk@cloudshell:~/CKA/final_project/test2$ k get hpa -w                                                         
+NAME                     REFERENCE                           TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+apache-html-deployment   Deployment/apache-html-deployment   1%/50%    1         10        1          45m
+
+apache-html-deployment   Deployment/apache-html-deployment   25%/50%   1         10        1          47m
+apache-html-deployment   Deployment/apache-html-deployment   153%/50%   1         10        1          47m
+apache-html-deployment   Deployment/apache-html-deployment   153%/50%   1         10        4          47m
+
 
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 
